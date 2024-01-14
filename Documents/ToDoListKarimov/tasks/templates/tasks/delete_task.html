@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Delete Confirmation</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .confirmation-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+      }
+
+      p {
+        margin: 20px 0;
+        font-size: 18px;
+      }
+
+      a.cancel {
+        background-color: #3498db;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      input[type="submit"].confirm {
+        background-color: #e74c3c;
+        padding: 10px 20px;
+        margin: 20px;
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="confirmation-container">
+      <p>Are you sure you want to delete "{{ item }}"?</p>
+      <a href="{% url 'todo' %}" class="cancel">Cancel</a>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="Confirm" class="confirm" />
+      </form>
+    </div>
+  </body>
+</html>
